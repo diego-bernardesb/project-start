@@ -46,7 +46,6 @@ public class UserService {
         //seta todos os valores da requisicao post no novo usuario
         newUser.setName(dto.getName());
         newUser.setCpf(dto.getCpf());
-        newUser.setDateOfBirth(dto.getDateOfBirth());
         newUser.setEmail(dto.getEmail());
         //cryptografia da senha com BCrypt
         newUser.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -68,8 +67,6 @@ public class UserService {
         //adiciona os novos valores para um usuario
         user.setName(dto.getName().isEmpty() ? user.getName() :dto.getName());
         user.setCpf(dto.getCpf().isEmpty() ? user.getCpf() : dto.getCpf());
-        user.setDateOfBirth(dto.getDateOfBirth().isEqual(user.getDateOfBirth()) ?
-                user.getDateOfBirth() : dto.getDateOfBirth());
         user.setEmail(dto.getEmail().isEmpty() ? user.getEmail() : dto.getEmail());
         user.setPassword(dto.getPassword().isEmpty() ? user.getPassword() : passwordEncoder.encode(dto.getPassword()));
         user.setRole(dto.getRole().equals(user.getRole()) ? user.getRole() : dto.getRole());
